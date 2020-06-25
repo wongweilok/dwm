@@ -85,6 +85,8 @@ static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
+#include <X11/XF86keysym.h>
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
@@ -128,6 +130,32 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	//{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+
+	{ MODKEY,			XK_w,	   spawn,	   SHCMD("$BROWSER") },
+	{ MODKEY,			XK_r,	   spawn,	   SHCMD("st -e $FILE") },
+	{ MODKEY,			XK_m,	   spawn,	   SHCMD("st -e ncmpcpp") },
+	{ MODKEY,			XK_c,	   spawn,	   SHCMD("st -e calcurse") },
+	{ MODKEY,			XK_g,	   spawn,	   SHCMD("st -e gotop") },
+	{ MODKEY|ShiftMask,		XK_g,	   spawn,	   SHCMD("st -e htop") },
+	{ MODKEY,			XK_x,	   spawn,	   SHCMD("slock & xset dpms force off; mpc pause") },
+
+	{ MODKEY|ShiftMask,		XK_x,	   spawn,	   SHCMD("powerOption") },
+	{ MODKEY|ShiftMask,		XK_k,	   spawn,	   SHCMD("fcitx") },
+	{ MODKEY,			XK_grave,  spawn,	   SHCMD("dmenuunicode") },
+	{ 0,				XK_Print,  spawn,	   SHCMD("ssOption") },
+
+	{ MODKEY,			XK_F3,	   spawn,	   SHCMD("displayselect") },
+	{ MODKEY,			XK_F9,	   spawn,	   SHCMD("dmenumount") },
+	{ MODKEY,			XK_F10,	   spawn,	   SHCMD("dmenuumount") },
+	{ MODKEY,			XK_F12,	   spawn,	   SHCMD("st -e nmtui") },
+
+	{ 0, 	XF86XK_AudioMute,		   spawn,	   SHCMD("amixer sset Master toggle; pkill -RTMIN+10 dwmblocks") },
+	{ 0, 	XF86XK_AudioRaiseVolume,	   spawn,	   SHCMD("amixer sset Master 5%+; pkill -RTMIN+10 dwmblocks") },
+	{ 0, 	XF86XK_AudioLowerVolume,	   spawn,	   SHCMD("amixer sset Master 5%-; pkill -RTMIN+10 dwmblocks") },
+	{ 0, 	XF86XK_AudioNext,	   	   spawn,	   SHCMD("mpc next") },
+	{ 0, 	XF86XK_AudioPrev,	   	   spawn,	   SHCMD("mpc prev") },
+	{ 0, 	XF86XK_AudioPause,	   	   spawn,	   SHCMD("mpc pause") },
+	{ 0, 	XF86XK_AudioPlay,	   	   spawn,	   SHCMD("mpc play") }
 };
 
 /* button definitions */
