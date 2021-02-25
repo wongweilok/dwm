@@ -136,6 +136,7 @@ static Key keys[] = {
 
 	{ MODKEY|ShiftMask,		XK_x,	   spawn,	   SHCMD("powerOption") },
 	{ MODKEY|ShiftMask,		XK_k,	   spawn,	   SHCMD("fcitx") },
+	{ MODKEY|ShiftMask,		XK_p,	   spawn,	   SHCMD("passmenu") },
 	{ MODKEY,			XK_grave,  spawn,	   SHCMD("dmenuunicode") },
 	{ 0,				XK_Print,  spawn,	   SHCMD("ssOption") },
 
