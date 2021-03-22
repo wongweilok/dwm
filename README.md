@@ -7,7 +7,7 @@ Below are patches that I added into my dwm build.
 
 ## Patches
 
-* [actualfullscreen](https://dwm.suckless.org/patches/alwaysfullscreen/): Toggle fullscreen on selected window
+* [actualfullscreen](https://dwm.suckless.org/patches/actualfullscreen/): Toggle fullscreen on selected window
 * [bar height](https://dwm.suckless.org/patches/bar_height/): Allow to configure statusbar height
 * [scratchpad](https://dwm.suckless.org/patches/scratchpad/): Spawn a floating window that can be hidden instead of occuping a window space
 * [sticky](https://dwm.suckless.org/patches/sticky/): Toggle a selected window to be sticky
