@@ -17,7 +17,8 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 20;       /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char *fonts[]          = {
 	"Font Awesome 5 Free:size=10:antialias=true:autohint=true",
-	"monospace:size=9:antialias=true:autohint=true",
+	"monospace:size=8:antialias=true:autohint=true",
+	"Inconsolata for Powerline:size=16:antialias=true:autohint=true",
 	"JoyPixels:pixelsize=12:antialias=true:autohint=true"
 };
 static const char dmenufont[]       = "Inconsolata for Powerline:size=12";
@@ -26,10 +27,12 @@ static const char col_white[]       = "#ebdbb2";
 static const char col_gray[]        = "#555555";
 static const char col_blue[]        = "#458588";
 static const char col_green[]       = "#b8bb26";
+static const char col_orange[]      = "#fe8019";
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_white, col_black, col_gray },
-	[SchemeSel]  = { col_white, col_blue,  col_green },
+	/*                fg         bg         border   */
+	[SchemeNorm]  = { col_white, col_black, col_gray },
+	[SchemeSel]   = { col_white, col_blue,  col_green },
+	[SchemeTitle] = { col_orange, col_black, col_gray },
 };
 
 /* tagging */
@@ -144,9 +147,9 @@ static Key keys[] = {
 	{ MODKEY,			XK_F10,	   spawn,	   SHCMD("dmenuumount") },
 	{ MODKEY,			XK_F12,	   spawn,	   SHCMD("st -e nmtui") },
 
-	{ 0, 	XF86XK_AudioMute,		   spawn,	   SHCMD("amixer sset Master toggle; pkill -RTMIN+10 dwmblocks") },
-	{ 0, 	XF86XK_AudioRaiseVolume,	   spawn,	   SHCMD("amixer sset Master 5%+; pkill -RTMIN+10 dwmblocks") },
-	{ 0, 	XF86XK_AudioLowerVolume,	   spawn,	   SHCMD("amixer sset Master 5%-; pkill -RTMIN+10 dwmblocks") },
+	{ 0, 	XF86XK_AudioMute,		   spawn,	   SHCMD("amixer sset Master toggle") },
+	{ 0, 	XF86XK_AudioRaiseVolume,	   spawn,	   SHCMD("amixer sset Master 5%+") },
+	{ 0, 	XF86XK_AudioLowerVolume,	   spawn,	   SHCMD("amixer sset Master 5%-") },
 	{ 0, 	XF86XK_AudioNext,	   	   spawn,	   SHCMD("mpc next") },
 	{ 0, 	XF86XK_AudioPrev,	   	   spawn,	   SHCMD("mpc prev") },
 	{ 0, 	XF86XK_AudioPause,	   	   spawn,	   SHCMD("mpc pause") },
