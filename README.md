@@ -3,6 +3,7 @@
 dwm is and extremely fast, small, and dynamic window manager for X.
 
 This is my own custom build of [dwm](https://dwm.suckless.org/).
+For dwm-polybar build, click [here](https://github.com/wongweilok/dwm/tree/dwm-polybar-build).
 Below are patches that I added into my dwm build.
 
 ## Patches
@@ -27,7 +28,7 @@ Install [libxft-bgra](https://aur.archlinux.org/packages/libxft-bgra/) to preven
 ## Installation
 
 ```
-$ git clone https://github.com/Wayloque/dwm.git
+$ git clone https://github.com/wongweilok/dwm.git
 $ cd dwm
 $ sudo make clean install
 ```
