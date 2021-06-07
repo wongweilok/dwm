@@ -696,11 +696,11 @@ createmon(void)
 	m->nmaster = nmaster;
 	m->showbar = showbar;
 	m->topbar = topbar;
+	m->bh = bh;
 	m->gappih = gappih;
 	m->gappiv = gappiv;
 	m->gappoh = gappoh;
 	m->gappov = gappov;
-	m->bh = bh;
 	m->lt[0] = &layouts[0];
 	m->lt[1] = &layouts[1 % LENGTH(layouts)];
 	strncpy(m->ltsymbol, layouts[0].symbol, sizeof m->ltsymbol);
@@ -716,9 +716,9 @@ destroynotify(XEvent *e)
 
 	if ((c = wintoclient(ev->window)))
 		unmanage(c, 1);
-	else if ((m = wintomon(ev->window)) && m->barwin == ev->window)
+	else if (usealtbar && (m = wintomon(ev->window)) && m->barwin == ev->window)
 		unmanagealtbar(ev->window);
-	else if (m->traywin == ev->window)
+	else if (usealtbar && m->traywin == ev->window)
 		unmanagetray(ev->window);
 }
 
@@ -1233,7 +1233,7 @@ maprequest(XEvent *e)
 		return;
 	if (wa.override_redirect)
 		return;
-	if (wmclasscontains(ev->window, altbarclass, ""))
+	if (usealtbar && wmclasscontains(ev->window, altbarclass, ""))
 		managealtbar(ev->window, &wa);
 	else if (!wintoclient(ev->window))
 		manage(ev->window, &wa);
@@ -1559,7 +1559,7 @@ scan(void)
 			if (!XGetWindowAttributes(dpy, wins[i], &wa)
 			|| wa.override_redirect || XGetTransientForHint(dpy, wins[i], &d1))
 				continue;
-			if (wmclasscontains(wins[i], altbarclass, ""))
+			if (usealtbar && wmclasscontains(wins[i], altbarclass, ""))
 				managealtbar(wins[i], &wa);
 			else if (wa.map_state == IsViewable || getstate(wins[i]) == IconicState)
 				manage(wins[i], &wa);
@@ -1916,17 +1916,18 @@ void
 togglebar(const Arg *arg)
 {
 	/**
-     * Polybar tray does not raise maprequest event. It must be manually scanned
+	 * Polybar tray does not raise maprequest event. It must be manually scanned
 	 * for. Scanning it too early while the tray is being populated would give
 	 * wrong dimensions.
-     */
-	if (!selmon->traywin)
+	 */
+	if (usealtbar && !selmon->traywin)
 		scantray();
 
 	selmon->showbar = !selmon->showbar;
 	updatebarpos(selmon);
 	XMoveResizeWindow(dpy, selmon->barwin, selmon->wx, selmon->by, selmon->ww, selmon->bh);
-	XMoveResizeWindow(dpy, selmon->traywin, selmon->tx, selmon->by, selmon->tw, selmon->bh);
+	if (usealtbar)
+		XMoveResizeWindow(dpy, selmon->traywin, selmon->tx, selmon->by, selmon->tw, selmon->bh);
 	arrange(selmon);
 }
 
@@ -2050,16 +2051,16 @@ unmanage(Client *c, int destroyed)
 void
 unmanagealtbar(Window w)
 {
-    Monitor *m = wintomon(w);
+	Monitor *m = wintomon(w);
 
-    if (!m)
-        return;
+	if (!m)
+		return;
 
-    m->barwin = 0;
-    m->by = 0;
-    m->bh = 0;
-    updatebarpos(m);
-    arrange(m);
+	m->barwin = 0;
+	m->by = 0;
+	m->bh = 0;
+	updatebarpos(m);
+	arrange(m);
 }
 
 void
@@ -2089,9 +2090,9 @@ unmapnotify(XEvent *e)
 			setclientstate(c, WithdrawnState);
 		else
 			unmanage(c, 0);
-	} else if ((m = wintomon(ev->window)) && m->barwin == ev->window)
+	} else if (usealtbar && (m = wintomon(ev->window)) && m->barwin == ev->window)
 		unmanagealtbar(ev->window);
-	else if (m->traywin == ev->window)
+	else if (usealtbar && m->traywin == ev->window)
 		unmanagetray(ev->window);
 }
 
