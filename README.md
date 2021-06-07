@@ -2,7 +2,7 @@
 
 dwm is and extremely fast, small, and dynamic window manager for X.
 
-This is my own custom build of [dwm](https://dwm.suckless.org/).
+This is my own custom build of [dwm](https://dwm.suckless.org/) that uses polybar as primary statusbar.
 Below are patches that I added into my dwm build.
 
 ## Patches
