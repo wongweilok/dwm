@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -17,20 +17,22 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 20;       /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char *fonts[]          = {
 	"Font Awesome 5 Free:size=10:antialias=true:autohint=true",
-	"monospace:size=9:antialias=true:autohint=true",
+	"monospace:size=8:antialias=true:autohint=true",
+	"Inconsolata for Powerline:size=16:antialias=true:autohint=true",
 	"JoyPixels:pixelsize=12:antialias=true:autohint=true"
 };
 static const char dmenufont[]       = "Inconsolata for Powerline:size=12";
 static const char col_black[]       = "#282828";
+static const char col_black2[]	    = "#1d2021";
+static const char col_orange[]	    = "#fe8019";
 static const char col_white[]       = "#ebdbb2";
-static const char col_gray[]        = "#555555";
-static const char col_blue[]        = "#458588";
 static const char col_green[]       = "#b8bb26";
+static const char col_gray[]        = "#555555";
 static const char *colors[][3]      = {
-	/*                fg         bg         border   */
-	[SchemeNorm]  = { col_white, col_black, col_gray },
-	[SchemeSel]   = { col_white, col_blue,  col_green },
-	[SchemeTitle] = { col_green, col_black, col_gray },
+	/*                fg          bg         border   */
+	[SchemeNorm]  = { col_white,  col_black, col_gray },
+	[SchemeSel]   = { col_black2, col_green, col_green },
+	[SchemeTitle] = { col_orange, col_black, col_gray },
 };
 
 /* tagging */
