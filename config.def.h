@@ -1,6 +1,4 @@
-/* See LICENSE file for copyright and license details. */
-
-/* appearance */
+/* See LICENSE file for copyright and license details. */ /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -140,23 +138,19 @@ static Key keys[] = {
 	{ MODKEY,			XK_x,	   spawn,	   SHCMD("slock & xset dpms force off; mpc pause") },
 
 	{ MODKEY|ShiftMask,		XK_x,	   spawn,	   SHCMD("powerOption") },
-	{ MODKEY|ShiftMask,		XK_k,	   spawn,	   SHCMD("fcitx") },
+	{ MODKEY|ShiftMask,		XK_k,	   spawn,	   SHCMD("fcitx5") },
 	{ MODKEY|ShiftMask,		XK_p,	   spawn,	   SHCMD("passmenu") },
 	{ MODKEY,			XK_grave,  spawn,	   SHCMD("dmenuunicode") },
 	{ 0,				XK_Print,  spawn,	   SHCMD("ssOption") },
 
-	{ MODKEY,			XK_F3,	   spawn,	   SHCMD("displayselect") },
-	{ MODKEY,			XK_F9,	   spawn,	   SHCMD("dmenumount") },
-	{ MODKEY,			XK_F10,	   spawn,	   SHCMD("dmenuumount") },
-	{ MODKEY,			XK_F12,	   spawn,	   SHCMD("st -e nmtui") },
+	{ MODKEY,			XK_F8,	   spawn,	   SHCMD("st -e nmtui") },
+	{ MODKEY,			XK_F10,	   spawn,	   SHCMD("dmenumount") },
+	{ MODKEY,			XK_F11,	   spawn,	   SHCMD("dmenuumount") },
 
-	{ 0, 	XF86XK_AudioMute,		   spawn,	   SHCMD("amixer sset Master toggle; pkill -RTMIN+10 dwmblocks") },
-	{ 0, 	XF86XK_AudioRaiseVolume,	   spawn,	   SHCMD("amixer sset Master 5%+; pkill -RTMIN+10 dwmblocks") },
-	{ 0, 	XF86XK_AudioLowerVolume,	   spawn,	   SHCMD("amixer sset Master 5%-; pkill -RTMIN+10 dwmblocks") },
-	{ 0, 	XF86XK_AudioNext,	   	   spawn,	   SHCMD("mpc next") },
-	{ 0, 	XF86XK_AudioPrev,	   	   spawn,	   SHCMD("mpc prev") },
-	{ 0, 	XF86XK_AudioPause,	   	   spawn,	   SHCMD("mpc pause") },
-	{ 0, 	XF86XK_AudioPlay,	   	   spawn,	   SHCMD("mpc play") }
+	{ 0, 	XF86XK_AudioMute,		   spawn,	   SHCMD("pamixer -t; pkill -RTMIN+10 dwmblocks") },
+	{ 0, 	XF86XK_AudioRaiseVolume,	   spawn,	   SHCMD("pamixer -i 5; pkill -RTMIN+10 dwmblocks") },
+	{ 0, 	XF86XK_AudioLowerVolume,	   spawn,	   SHCMD("pamixer -d 5; pkill -RTMIN+10 dwmblocks") },
+	{ 0,	XF86XK_Display,			   spawn,	   SHCMD("displayselect") }
 };
 
 /* button definitions */
