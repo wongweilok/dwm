@@ -21,10 +21,6 @@ Below are patches that I added into my dwm build.
   - [centeredmaster](https://dwm.suckless.org/patches/centeredmaster/)
   - [bottomstack](https://dwm.suckless.org/patches/bottomstack/)
 
-## Requirements
-
-Install [libxft-bgra](https://aur.archlinux.org/packages/libxft-bgra/) to prevent color emoji / font rendering issues.
-
 ## Installation
 
 ```
