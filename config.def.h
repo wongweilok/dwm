@@ -141,7 +141,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_k,	   spawn,	   SHCMD("fcitx5") },
 	{ MODKEY|ShiftMask,		XK_p,	   spawn,	   SHCMD("passmenu") },
 	{ MODKEY,			XK_grave,  spawn,	   SHCMD("dmenuunicode") },
-	{ 0,				XK_Print,  spawn,	   SHCMD("ssOption") },
+	{ MODKEY,			XK_Print,  spawn,	   SHCMD("screenshotSel") },
+	{ 0,				XK_Print,  spawn,	   SHCMD("screenshot") },
 
 	{ MODKEY,			XK_F8,	   spawn,	   SHCMD("st -e nmtui") },
 	{ MODKEY,			XK_F10,	   spawn,	   SHCMD("dmenumount") },
