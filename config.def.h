@@ -21,7 +21,6 @@ static const char *fonts[]          = {
 	"Font Awesome 6 Brands:size=10:antialias=true:autohint=true",
 	"NotoColorEmoji:pixelsize=10:antialias=true:autohint=true"
 };
-static const char dmenufont[]       = "Inconsolata for Powerline:size=12";
 static const char col_black[]       = "#282828";
 static const char col_black2[]	    = "#1d2021";
 static const char col_orange[]	    = "#fe8019";
@@ -46,6 +45,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "float",    NULL,	  NULL,	      0,	    1,		 -1 },
 };
 
 /* layout(s) */
@@ -131,7 +131,7 @@ static const Key keys[] = {
 
 	{ MODKEY,			XK_w,	   spawn,	   SHCMD("$BROWSER") },
 	{ MODKEY,			XK_r,	   spawn,	   SHCMD("st -e $FILE") },
-	{ MODKEY,			XK_m,	   spawn,	   SHCMD("st -e ncmpcpp") },
+	{ MODKEY,			XK_m,	   spawn,	   SHCMD("st -c float -g 100x22+350+200 ncmpcpp-ueberzug") },
 	{ MODKEY,			XK_c,	   spawn,	   SHCMD("st -e calcurse") },
 	{ MODKEY,			XK_g,	   spawn,	   SHCMD("st -e gotop") },
 	{ MODKEY|ShiftMask,		XK_g,	   spawn,	   SHCMD("st -e htop") },
@@ -148,9 +148,10 @@ static const Key keys[] = {
 	{ MODKEY,			XK_F10,	   spawn,	   SHCMD("dmenumount") },
 	{ MODKEY,			XK_F11,	   spawn,	   SHCMD("dmenuumount") },
 
-	{ 0, 	XF86XK_AudioMute,		   spawn,	   SHCMD("pamixer -t; pkill -RTMIN+10 dwmblocks") },
-	{ 0, 	XF86XK_AudioRaiseVolume,	   spawn,	   SHCMD("pamixer -i 5; pkill -RTMIN+10 dwmblocks") },
-	{ 0, 	XF86XK_AudioLowerVolume,	   spawn,	   SHCMD("pamixer -d 5; pkill -RTMIN+10 dwmblocks") },
+	{ 0, 	XF86XK_AudioMute,		   spawn,	   SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; pkill -RTMIN+10 dwmblocks") },
+	{ 0, 	XF86XK_AudioRaiseVolume,	   spawn,	   SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; pkill -RTMIN+10 dwmblocks") },
+	{ 0, 	XF86XK_AudioLowerVolume,	   spawn,	   SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; pkill -RTMIN+10 dwmblocks") },
+	{ 0,	XF86XK_AudioMicMute,		   spawn,	   SHCMD("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle") },
 	{ 0,	XF86XK_Display,			   spawn,	   SHCMD("displayselect") }
 };
 
