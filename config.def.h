@@ -110,10 +110,10 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_s,      togglesticky,   {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_Left,   focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_Right,  focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_Left,   tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_Right,  tagmon,         {.i = +1 } },
 	{ MODKEY,			XK_a,	   togglegaps,	   {0} },
 	{ MODKEY|ShiftMask,		XK_d,	   defaultgaps,	   {0} },
 	{ MODKEY,			XK_z,	   incrgaps,	   {.i = +5 } },
@@ -148,11 +148,22 @@ static const Key keys[] = {
 	{ MODKEY,			XK_F10,	   spawn,	   SHCMD("dmenumount") },
 	{ MODKEY,			XK_F11,	   spawn,	   SHCMD("dmenuumount") },
 
+	{ MODKEY,			XK_comma,  spawn,	   SHCMD("mpc prev") },
+	{ MODKEY,			XK_period, spawn,	   SHCMD("mpc next") },
+	{ MODKEY|ShiftMask,		XK_comma,  spawn,	   SHCMD("mpc seek -10") },
+	{ MODKEY|ShiftMask,		XK_period, spawn,	   SHCMD("mpc seek +10") },
+
+	{ MODKEY,			XK_Cancel, spawn,	   SHCMD("mpc stop") },
+	{ MODKEY,			XF86XK_Go, spawn,	   SHCMD("mpc toggle") },
+	{ MODKEY,		 XF86XK_Favorites, spawn,	   SHCMD("mpc seek 0") },
+
 	{ 0, 	XF86XK_AudioMute,		   spawn,	   SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; pkill -RTMIN+10 dwmblocks") },
 	{ 0, 	XF86XK_AudioRaiseVolume,	   spawn,	   SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; pkill -RTMIN+10 dwmblocks") },
 	{ 0, 	XF86XK_AudioLowerVolume,	   spawn,	   SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; pkill -RTMIN+10 dwmblocks") },
 	{ 0,	XF86XK_AudioMicMute,		   spawn,	   SHCMD("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle") },
-	{ 0,	XF86XK_Display,			   spawn,	   SHCMD("displayselect") }
+	{ 0,	XF86XK_MonBrightnessUp,		   spawn,	   SHCMD("xbacklight -inc 10") },
+	{ 0,	XF86XK_MonBrightnessDown,	   spawn,	   SHCMD("xbacklight -dec 10") },
+	{ 0,	XF86XK_Display,			   spawn,	   SHCMD("displayselect") },
 };
 
 /* button definitions */
