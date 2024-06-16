@@ -2,11 +2,11 @@
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
-static const unsigned int systrayspacing = 2;   /* systray spacing */
-static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
+static const unsigned int systrayspacing = 6;   /* systray spacing */
+static const unsigned int gappih    = 25;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 25;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 25;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 25;       /* vert outer gap between windows and screen edge */
 static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     	/* 0 means no systray */
@@ -14,24 +14,23 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 24;       /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char *fonts[]          = {
-	"monospace:pixelsize=12:antialias=true:autohint=true",
-	"Inconsolata for Powerline:size=18:antialias=true:autohint=true",
+	"monospace:pixelsize=12:antialias=true:autohint=true:style=bold",
 	"Font Awesome 6 Free:size=10:antialias=true:autohint=true",
 	"Font Awesome 6 Free Solid:size=10:antialias=true:autohint=true",
 	"Font Awesome 6 Brands:size=10:antialias=true:autohint=true",
-	"NotoColorEmoji:pixelsize=10:antialias=true:autohint=true"
+	"Symbols Nerd Font:pixelsize=14:antialias=true:autohint=true"
 };
 static const char col_black[]       = "#282828";
-static const char col_black2[]	    = "#1d2021";
-static const char col_orange[]	    = "#fe8019";
+static const char col_black2[]	    = "#3c3836";
 static const char col_white[]       = "#ebdbb2";
 static const char col_green[]       = "#b8bb26";
-static const char col_gray[]        = "#555555";
+static const char col_gray[]        = "#928374";
 static const char *colors[][3]      = {
 	/*                fg          bg         border   */
-	[SchemeNorm]  = { col_white,  col_black, col_gray },
-	[SchemeSel]   = { col_black2, col_green, col_green },
-	[SchemeTitle] = { col_orange, col_black, col_gray },
+	[SchemeNorm]  = { col_gray, col_black, col_black2 },
+	[SchemeSel]   = { col_white, col_black2, col_gray },
+	[SchemeLt]    = { col_green, col_black2, col_gray },
+	[SchemeTitle] = { col_white,  col_black, col_gray },
 };
 
 /* tagging */
