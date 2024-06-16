@@ -17,6 +17,7 @@ Below are patches that I added into my dwm build.
 * [systray](https://dwm.suckless.org/patches/systray/): Show systray on statusbar; (Latest ver: [6.4](https://dwm.suckless.org/patches/status2d/dwm-status2d-systray-6.4.diff))
 * [titlecolor](https://dwm.suckless.org/patches/titlecolor/): Change title background and foreground color; (Latest ver: [20210815](https://dwm.suckless.org/patches/titlecolor/dwm-titlecolor-20210815-ed3ab6b4.diff))
 * [vanitygaps](https://dwm.suckless.org/patches/vanitygaps/): Add gaps between windows for every available layouts, only include [centeredmaster](https://dwm.suckless.org/patches/centeredmaster/) and [bottomstack](https://dwm.suckless.org/patches/bottomstack/) layout; (Latest ver: [6.2](https://dwm.suckless.org/patches/vanitygaps/dwm-vanitygaps-6.2.diff))
+* [windowmap](https://dwm.suckless.org/patches/windowmap/): Makes windows get mapped or unmapped in Xorg, to allow fading animation by picom; (Latest ver: [20221026](https://dwm.suckless.org/patches/windowmap/dwm-windowmap-20221026.diff))
 
 ## Installation
 
