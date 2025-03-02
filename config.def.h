@@ -42,9 +42,9 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "float",    NULL,	  NULL,	      0,	    1,		 -1 },
+    { "Gimp",     NULL,       NULL,       0,            1,           -1 },
+    { "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+    { "float",    NULL,	      NULL,	      0,	        1,		     -1 },
 };
 
 /* layout(s) */
@@ -87,7 +87,7 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,             		    XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_n,  	   togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -99,13 +99,13 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_space,  zoom,           {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,             		XK_q,      killclient,     {0} },
+	{ MODKEY,             		    XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_i,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[4]} },
-	{ MODKEY,             		XK_f,      togglefullscr,  {0} },
+	{ MODKEY,             		    XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_s,      togglesticky,   {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
@@ -113,10 +113,10 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Right,  focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_Left,   tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_Right,  tagmon,         {.i = +1 } },
-	{ MODKEY,			XK_a,	   togglegaps,	   {0} },
-	{ MODKEY|ShiftMask,		XK_d,	   defaultgaps,	   {0} },
-	{ MODKEY,			XK_z,	   incrgaps,	   {.i = +5 } },
-	{ MODKEY|ShiftMask,		XK_z,	   incrgaps,	   {.i = -5 } },
+	{ MODKEY,			            XK_a,	   togglegaps,	   {0} },
+	{ MODKEY|ShiftMask,		        XK_d,	   defaultgaps,	   {0} },
+	{ MODKEY,			            XK_z,	   incrgaps,	   {.i = +5 } },
+	{ MODKEY|ShiftMask,		        XK_z,	   incrgaps,	   {.i = -5 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -128,40 +128,40 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 
-	{ MODKEY,			XK_w,	   spawn,	   SHCMD("$BROWSER") },
-	{ MODKEY,			XK_r,	   spawn,	   SHCMD("st -e $FILE") },
-	{ MODKEY,			XK_m,	   spawn,	   SHCMD("st -c float -g 100x22+350+200 ncmpcpp-ueberzug") },
-	{ MODKEY,			XK_c,	   spawn,	   SHCMD("st -e calcurse") },
-	{ MODKEY,			XK_g,	   spawn,	   SHCMD("st -e gotop") },
-	{ MODKEY|ShiftMask,		XK_g,	   spawn,	   SHCMD("st -e htop") },
-	{ MODKEY,			XK_x,	   spawn,	   SHCMD("slock & xset dpms force off; mpc pause") },
+	{ MODKEY,			            XK_w,	   spawn,	   SHCMD("$BROWSER") },
+	{ MODKEY,			            XK_r,	   spawn,	   SHCMD("st -e $FILE") },
+	{ MODKEY,			            XK_m,	   spawn,	   SHCMD("st -c float -g 100x22+350+200 ncmpcpp-ueberzug") },
+	{ MODKEY,			            XK_c,	   spawn,	   SHCMD("st -e calcurse") },
+	{ MODKEY,			            XK_g,	   spawn,	   SHCMD("st -e gotop") },
+	{ MODKEY|ShiftMask,		        XK_g,	   spawn,	   SHCMD("st -e htop") },
+	{ MODKEY,			            XK_x,	   spawn,	   SHCMD("slock & xset dpms force off; mpc pause") },
 
-	{ MODKEY|ShiftMask,		XK_x,	   spawn,	   SHCMD("powerOption") },
-	{ MODKEY|ShiftMask,		XK_k,	   spawn,	   SHCMD("fcitx5") },
-	{ MODKEY|ShiftMask,		XK_p,	   spawn,	   SHCMD("passmenu") },
-	{ MODKEY,			XK_grave,  spawn,	   SHCMD("dmenuunicode") },
-	{ MODKEY,			XK_Print,  spawn,	   SHCMD("screenshotSel") },
-	{ 0,				XK_Print,  spawn,	   SHCMD("screenshot") },
+	{ MODKEY|ShiftMask,		        XK_x,	   spawn,	   SHCMD("powerOption") },
+	{ MODKEY|ShiftMask,		        XK_k,	   spawn,	   SHCMD("fcitx5") },
+	{ MODKEY|ShiftMask,		        XK_p,	   spawn,	   SHCMD("passmenu") },
+	{ MODKEY,			            XK_grave,  spawn,	   SHCMD("dmenuunicode") },
+	{ MODKEY,			            XK_Print,  spawn,	   SHCMD("screenshotSel") },
+	{ 0,				            XK_Print,  spawn,	   SHCMD("screenshot") },
 
-	{ MODKEY,			XK_F8,	   spawn,	   SHCMD("st -e nmtui") },
-	{ MODKEY,			XK_F10,	   spawn,	   SHCMD("dmenumount") },
-	{ MODKEY,			XK_F11,	   spawn,	   SHCMD("dmenuumount") },
+	{ MODKEY,			            XK_F8,	   spawn,	   SHCMD("st -e nmtui") },
+	{ MODKEY,			            XK_F10,	   spawn,	   SHCMD("dmenumount") },
+	{ MODKEY,			            XK_F11,	   spawn,	   SHCMD("dmenuumount") },
 
-	{ MODKEY,			XK_comma,  spawn,	   SHCMD("mpc prev") },
-	{ MODKEY,			XK_period, spawn,	   SHCMD("mpc next") },
-	{ MODKEY|ShiftMask,		XK_comma,  spawn,	   SHCMD("mpc seek -10") },
-	{ MODKEY|ShiftMask,		XK_period, spawn,	   SHCMD("mpc seek +10") },
-	{ 0,				XK_Cancel, spawn,	   SHCMD("mpc stop") },
+	{ MODKEY,			            XK_comma,  spawn,	   SHCMD("mpc prev") },
+	{ MODKEY,			            XK_period, spawn,	   SHCMD("mpc next") },
+	{ MODKEY|ShiftMask,		        XK_comma,  spawn,	   SHCMD("mpc seek -10") },
+	{ MODKEY|ShiftMask,		        XK_period, spawn,	   SHCMD("mpc seek +10") },
+	{ 0,				            XK_Cancel, spawn,	   SHCMD("mpc stop") },
 
-	{ 0, 	XF86XK_AudioMute,		   spawn,	   SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -44 $(pidof dwmblocks)") },
+	{ 0, 	XF86XK_AudioMute,		       spawn,	   SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -44 $(pidof dwmblocks)") },
 	{ 0, 	XF86XK_AudioRaiseVolume,	   spawn,	   SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; kill -44 $(pidof dwmblocks)") },
 	{ 0, 	XF86XK_AudioLowerVolume,	   spawn,	   SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; kill -44 $(pidof dwmblocks)") },
 	{ 0,	XF86XK_AudioMicMute,		   spawn,	   SHCMD("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle") },
 	{ 0,	XF86XK_MonBrightnessUp,		   spawn,	   SHCMD("xbacklight -inc 10") },
 	{ 0,	XF86XK_MonBrightnessDown,	   spawn,	   SHCMD("xbacklight -dec 10") },
-	{ 0,	XF86XK_Display,			   spawn,	   SHCMD("displayselect") },
-	{ 0,	XF86XK_Go, 			   spawn,	   SHCMD("mpc toggle") },
-	{ 0,	XF86XK_Favorites,		   spawn,	   SHCMD("mpc seek 0") }
+	{ 0,	XF86XK_Display,			       spawn,	   SHCMD("displayselect") },
+	{ 0,	XF86XK_AudioPlay, 	           spawn,	   SHCMD("mpc toggle") },
+	{ 0,	XF86XK_Favorites,		       spawn,	   SHCMD("mpc seek 0") }
 };
 
 /* button definitions */
