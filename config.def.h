@@ -15,10 +15,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 24;       /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char *fonts[]          = {
 	"monospace:pixelsize=12:antialias=true:autohint=true:style=bold",
-	"Font Awesome 6 Free:size=10:antialias=true:autohint=true",
-	"Font Awesome 6 Free Solid:size=10:antialias=true:autohint=true",
-	"Font Awesome 6 Brands:size=10:antialias=true:autohint=true",
-	"Symbols Nerd Font:pixelsize=14:antialias=true:autohint=true"
+	"Symbols Nerd Font:pixelsize=12:antialias=true:autohint=true"
 };
 static const char col_black[]       = "#282828";
 static const char col_black2[]	    = "#3c3836";
